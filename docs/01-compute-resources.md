@@ -2,21 +2,34 @@
 
 Note: You must have VirtualBox and Vagrant configured at this point
 
-* First download the Centos 7 vagrant box from [Centos7Box](https://app.vagrantup.com/centos/boxes/7)
-* Create a project folder, copy the downloaded centos7 vagrant box and put it in the directory you just created
-* Add the centos7 box by typing the following command:
-`vagrant box add CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box --name centos/7`
 
-Replace centos/7 by the name you want the box to have and  centos-7.0-x86_64.box by the name of the box you downloaded.
+CD into vagrant directory
 
-* Create Vagrantfile
-`vagrant init centos/7`
+`cd auto-m8\vagrant`
 
-Edit the Vagrantfile and replace specifications to your needs
+Run Vagrant up
 
-* Run Vagrant up to start up centos 7 VM
 `vagrant up`
 
-* Login to the CentOS 7 Virtual Machine with the command
-`vagrant ssh`
+This does the below:
+
+- Deploys 1 VM - with the name 'jenkins'
+
+- Set's IP addresses in the range 192.168.5.31
+
+    | VM            |  VM Name               | Purpose        | IP           | Forwarded Port   |
+    | ------------  | ---------------------- |:--------------:| ------------:| ----------------:|
+    | jenkins       | jenkins                | Jenkins Server | 192.168.5.31 |     2740         |
+
+
+    > These are the default settings. These can be changed in the Vagrant file
+
+- Add's a DNS entry to each of the nodes to access internet
+    > DNS: 8.8.8.8
+
+
+### SSH to the nodes
+
+  From the directory you ran the `vagrant up` command, run `vagrant ssh <vm>` for example `vagrant ssh jenkins`.
+  > Note: Use VM field from the above table and not the vm name itself.
 
