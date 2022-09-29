@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      # note: create the "jenkins_home" directory in the jenkins folder you created on the host machine.
+      # this maps "jenkins_home" volume on host to "/var/jenkins_home" on container.
+      - $PWD/jenkins_home:/var/jenkins_home
+    networks:
+      - net
+networks:
+  net:
