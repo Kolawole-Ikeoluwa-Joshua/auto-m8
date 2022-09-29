@@ -10,4 +10,6 @@ sudo yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 sudo systemctl start docker
 
+sudo systemctl enable docker
+
 sudo usermod -aG docker $USER

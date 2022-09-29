@@ -18,3 +18,4 @@ Download and Install [Vagrant](https://www.vagrantup.com/) on windows host
 
 * [Provisioning Compute Resources](docs/01-compute-resources.md)
 * [Install Docker Container Utilities](docs/02-setup-docker.md)
+* [Install Jenkins](docs/03-install-jenkins.md)
