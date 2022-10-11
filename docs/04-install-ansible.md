@@ -22,6 +22,8 @@ Recreate the new jenkins service with the docker-compose file using the command 
 
 To verify ansible installation, enter the jenkins container, using `docker exec -ti jenkins bash`.
 
+Create a directory `jenkins_home/ansible` in the jenkins container home directory.
+
 Enter the command `ansible --version`:
 
 ![anisble](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/ansible%20version.png)

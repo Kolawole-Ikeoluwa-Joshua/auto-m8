@@ -20,3 +20,5 @@ Download and Install [Vagrant](https://www.vagrantup.com/) on windows host
 * [Install Docker Container Utilities](docs/02-setup-docker.md)
 * [Install Jenkins](docs/03-install-jenkins.md)
 * [Install Jenkins + Ansible](docs/04-install-ansible.md)
+* [Create a CentOS7 Remote host using Docker](docs/05-remote-host.md)
+* [Ansible Inventory](docs/06-simple-ansible-inventory.md)
