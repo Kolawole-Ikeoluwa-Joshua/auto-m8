@@ -24,7 +24,8 @@ Run `docker-compose build` to create images using Dockerfile.
 
 Run `docker-compose up -D` to start services.
 
-output:
+
+
 ![remote-host](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/remote%20host%20container.png)
 
 
