@@ -19,5 +19,5 @@ Use ansible ping module to test connection to host in inventory.
 ```
 ansible -i hosts -m ping test1
 ```
-![ping-inventory](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/ping%20server%20in%20ansible%20inventory.png)
+![ping-inventory](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/9ee1523c1a09d4c40799ddea3a59f5a9c644244f/docs/images/ping%20server%20in%20ansible%20inventory.png)
 

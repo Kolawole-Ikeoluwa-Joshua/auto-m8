@@ -28,7 +28,7 @@
 
 * Create a docker-compose file for jenkins on the host device using a text editor `vi docker-compose.yml`, save and exit `:wq`.
 
-Use the docker-compose file found in the script folder of this project ![docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/docker-compose.yml) as reference.
+Use the docker-compose file found in the script folder of this project [docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/606231e853a57762e7cb6c8f28923b016ccc084a/scripts/docker-compose.yml) as reference.
 
 ### Start jenkins service
 
