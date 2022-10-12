@@ -64,3 +64,15 @@ select * from register;
 
 ### Create a Nginx Web Server service
 
+Create a `web` directory in the `jenkins-ansible` directory on host machine. Navigate into the `web` directory.
+
+Create a [Dockerfile](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/Dockerfile) for the web server.
+
+Create a `conf` directory to store a CentOS nginx yum repository configuration file [nginx.repo](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/nginx.repo).
+
+Create an [nginx.conf](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/nginx.conf) in the `conf` directory
+
+Create a `bin` directory to store a [script](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/start-services.sh) for starting up ssh, php and nginx services.
+
+
+
