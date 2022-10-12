@@ -4,7 +4,7 @@
 
 Create a `db_data` directory in the jenkins directory on host machine.
 
-Modify the [docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/606231e853a57762e7cb6c8f28923b016ccc084a/scripts/docker-compose.yml) file, by adding a new database service.
+Modify the [docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/e3483a82e62dd608b1f4e87695789cffeba44981/scripts/docker-compose.yml) file, by adding a new database service.
 
 Create the database container
 ```
@@ -63,3 +63,4 @@ select * from register;
 ![populated-db](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/populated%20database.png)
 
 ### Create a Nginx Web Server service
+
