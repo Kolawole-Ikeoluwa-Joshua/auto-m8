@@ -22,6 +22,8 @@ RUN rm -rf /run/nologin
 
 RUN /usr/bin/ssh-keygen -A
 
+RUN yum -y install mysql
+
 CMD /usr/sbin/sshd -D
 
 
