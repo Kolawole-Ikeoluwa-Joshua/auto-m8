@@ -72,7 +72,13 @@ Create a `conf` directory to store a CentOS nginx yum repository configuration f
 
 Create an [nginx.conf](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/nginx.conf) in the `conf` directory
 
-Create a `bin` directory to store a [script](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/web/start-services.sh) for starting up ssh, php and nginx services.
+Create a `bin` directory to store a [script](/scripts/web/start.sh) for starting up ssh, php and nginx services.
 
-Create a Docker container to host the web server by defining a service in the [docker-compose]() file.
+Create a Docker container to host the web server by defining a service in the [docker-compose](/scripts/docker-compose.yml) file.
+
+```
+docker-compose build
+
+docker-compose up -d
+```
 
