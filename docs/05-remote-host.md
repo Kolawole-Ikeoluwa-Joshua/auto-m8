@@ -16,9 +16,9 @@ Copy the private `remote-key` into the `jenkins_home/ansible` directory using co
 
 ### Create Remote host Dockerfile
 
-Create a [Dockerfile](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/remote-host/Dockerfile) file, in the `centos7` directory.
+Create a [Dockerfile](/scripts/remote-host/Dockerfile) file, in the `centos7` directory.
 
-Modify the [docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/606231e853a57762e7cb6c8f28923b016ccc084a/scripts/docker-compose.yml) file to add the remote-host container.
+Modify the [docker-compose](/scripts/docker-compose.yml) file to add the remote-host container.
 
 Run `docker-compose build` to create images using Dockerfile.
 
@@ -26,7 +26,7 @@ Run `docker-compose up -D` to start services.
 
 
 
-![remote-host](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/remote%20host%20container.png)
+![remote-host](./images/remote%20host%20container.png)
 
 
 ### Verification
@@ -41,7 +41,7 @@ Use SSH key to connect to the `remote_host` container.
 ssh -i remote-key remote_user@remote_host
 ```
 
-![remote-access](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/remote%20host%20access.png)
+![remote-access](./images/remote%20host%20access.png)
 
 
 
