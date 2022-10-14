@@ -31,13 +31,20 @@ services:
       - "$PWD/db_data:/var/lib/mysql"
     networks:
       - net
-  web:
-    container_name: web
-    image: ansible-web
+  nginx:
     build:
       context: jenkins-ansible/web/
     ports:
       - "80:80"
+    networks:
+      - net
+  fpm:
+    image: php:fpm
+    # seems like fpm receives the full path from nginx
+    # and tries to find the files in this dock, so it must
+    # be the same as nginx.root
+    volumes:
+      - "$PWD/data-html:/var/www/html"
     networks:
       - net
 networks:
