@@ -6,17 +6,17 @@
 
 Create a new directory `mkdir jenkins-ansible`.
 
-Create a new [Dockerfile](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/Dockerfile) in the `jenkins-ansible` directory.
+Create a new [Dockerfile](/scripts/jenkins-ansible/Dockerfile) in the `jenkins-ansible` directory.
 
 ### Modify docker-compose file
 
-Create a new `image: jenkins-ansible` in the exisiting [docker-compose](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/scripts/docker-compose.yml) file.
+Create a new `image: jenkins-ansible` in the exisiting [docker-compose](/scripts/docker-compose.yml) file.
 
 Run `docker-compose build` on host machine.
 
 Recreate the new jenkins service with the docker-compose file using the command `docker-compose up -d`.
 
-![jenkins-ansible](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/jenkins-ansible.png)
+![jenkins-ansible](./images/jenkins-ansible.png)
 
 ### Verification
 
@@ -26,6 +26,6 @@ Create a directory `jenkins_home/ansible` in the jenkins container home director
 
 Enter the command `ansible --version`:
 
-![anisble](https://github.com/Kolawole-Ikeoluwa-Joshua/auto-m8/blob/main/docs/images/ansible%20version.png)
+![anisble](./images/ansible%20version.png)
 
 
