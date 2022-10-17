@@ -91,3 +91,35 @@ Create a php [index](/scripts/web/index.php) file to output information about PH
 
 ![php-ouput](./images/php%20info%20page.png)
 
+
+### Display Random User Data on Webpage
+In this section, create a jinja2 template that uses HTML, CSS, PHP to display Database content on the websites index page
+
+#### prerequisite
+
+Ensure the `php-fpm` container has a `mysqli` extension installed in it.
+
+```
+
+docker exec -ti jenkins_fpm_1 bash          #log into the fpm container
+
+docker-php-ext-install mysqli 
+
+docker-php-ext-enable mysqli
+
+docker restart jenkins_fpm_1        #log out, and then restart the container
+
+```
+access your website using your web browser, you should see the mysqli configuration details below:
+
+![mysqli](./images/install%20mysqli%20extension.png)
+
+#### Update the website index page
+
+Copy the content of [table.j2](/scripts/web/table.j2) jinja template into the `index.php` file in the `data-html` directory.
+
+access your website using your web browser, notice the website is now displaying user with age 25 as 
+
+defined in the jinja template.
+
+![website-data](./images/website%20data%20using%20jinja.png)
