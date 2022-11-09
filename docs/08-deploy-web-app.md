@@ -123,3 +123,81 @@ access your website using your web browser, notice the website is now displaying
 defined in the jinja template.
 
 ![website-data](./images/website%20data%20using%20jinja.png)
+
+
+### Automate Website Updates with Ansible:
+
+#### Set up Ansible
+Install ansible on your host machine:
+
+```
+sudo yum install -y epel-release
+
+sudo yum install -y ansible
+```
+
+#### Set up python on FPM container
+
+Log into the fpm container to set up python: 
+
+```
+docker exec -ti jenkins_fpm_1  bash
+
+apt-get update
+
+apt-get install -y python3-pip
+
+```
+#### Create an Ansible Playbook to update website table
+
+Navigate to the `jenkins-ansible` directory, create the following:
+
+* an ansible [playbook](/scripts/web/people.yml).
+* edit the [hosts](/scripts/jenkins-ansible/hosts) file to have the following configurations.
+
+#### Test the connection to the ansible host (FPM container)
+
+Make sure you are in the directory with playbook & host file. Use the ping module to test connection.
+
+```
+ansible -m ping -i hosts jenkins_fpm_1
+```
+output:
+
+![ansible-container](./images/ansible%20docker%20connection%20test.png)
+
+
+#### Add Logic to filter website table
+
+In the `jenkins-ansible` directory create a jinja template [table.j2](/scripts/web/table.j2). Notice the age filter added to the table.
+
+#### Test the Ansible Playbook
+
+Still in `jenkins-ansible` directory use ansible play to update the website table.
+
+```
+ansible-playbook -i hosts people.yml
+
+```
+output:
+
+![playbook-update](./images/ansible%20playbook%20update%20site.png)
+
+If you check the website you will notice the website displays all users in the database.
+
+![display-update](./images/display%20update%20no%20filter.png)
+
+To filter the users on the website by age run add a variable to the previous command.
+
+```
+ansible-playbook -i hosts people.yml -e "PEOPLE_AGE=25"
+```
+output:
+
+![update-filter](./images/display%20update%20with%20filter.png)
+
+
+
+
+
+
