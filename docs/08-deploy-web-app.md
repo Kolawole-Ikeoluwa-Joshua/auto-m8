@@ -197,6 +197,56 @@ output:
 ![update-filter](./images/display%20update%20with%20filter.png)
 
 
+### Automate Website Updates with Ansible & Jenkins:
+
+#### Set up Docker in the Jenkins Container
+Create a new directory `pipeline` and store the [Dockerfile](/scripts/pipeline/Dockerfile) for the ansible-docker-jenkins container.
+
+Modify the [docker-compose](/scripts/pipeline/docker-compose.yml) file by adding the new jenkins service.
+
+Build the new jenkins image with `docker-compose build`. Recreate the jenkins container with the new image `docker-compose up -d`.
+
+Log into the jenkins container, test docker by viewing running containers `docker ps`. If you get the following error:
+
+```
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+
+```
+On your Host machine, change the permissions for the `docker.sock` by giving jenkins access `sudo chown 1000:1000 /var/run/docker.sock`.
+
+#### Create a Jenkins Job to Update Website
+
+Log into Jenkins Dashboard, create a new freestyle project `ansible-automate`.
+
+Complete the following configurations:
+
+* Choice Parameters
+![choice-param](./images/automate%20ansible%20choice%20parameter.png)
+
+* Build Step to invoke ansible playbook. 
+Note: Make sure the `hosts` inventory file, ansible playbook `people.yml` & the jinja `table.j2` template are in the 
+`jenkins_home/ansible` directory. In the advanced section of the build step make sure to configure extra variables.
+
+![build-step-1](./images/automate%20ansible%20choice%20build%201.png)
+
+![build-step-2](./images/automate%20ansible%20choice%20build%202.png)
+
+
+#### Build the Jenkins Job with Parameters
+
+To update the website to display users of age `23` simple run the jenkins job `ansible-automate` with the right parameter.
+
+![successful-job](./images/automate%20ansible%20successful.png)
+
+Now from your browser check the website to see the update displayed.
+
+![updated-website](./images/automate%20ansible%20website%20update.png)
+
+
+
+
+
+
 
 
 
