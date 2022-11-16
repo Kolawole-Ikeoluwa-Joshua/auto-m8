@@ -91,7 +91,7 @@ cd jenkins/test
 
 vi mvn.sh  #use the content in the script above and save file
 
-chmod +x build.sh
+chmod +x mvn.sh
 
 ```
 ### Configure the Jenkinsfile test step
@@ -99,3 +99,71 @@ chmod +x build.sh
 To configure the test step in our CICD process add the automation scripts and mvn test commands in the right order to the test section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).
 
 
+### Create a Remote Machine as the Production/Deployment Environment
+
+For this section, create a ubuntu linux server on AWS, Also ensure the server has the following configs:
+
+* SSH access
+* A `prod-user` with SSH key connection
+* Docker
+* docker-compose
+
+![aws-prod-server](./images/aws%20prod%20server.png)
+
+### Set up DockerHub Private Repository
+
+Log onto dockerhub and create a private repository `maven-project` to store artifacts from pipeline.
+
+### Automate push process for CICD pipeline
+
+Create a [script](/scripts/pipeline/push/push.sh) to automate the push process for the pipeline. Use the following steps:
+
+```
+cd jenkins/push
+
+vi push.sh    #use content of the above script and save file.
+
+chmod +x push.sh
+```
+Note: Set the `$BUILD_TAG` env variable to any random number, `$PASS` env variable to artifactory password, to test `push.sh` script
+
+### Configure the Jenkinsfile push step
+
+To configure the test step in our CICD process add the automation scripts and push commands to the push section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).
+
+### Automate the deployment stage for the CICD pipeline
+Create scripts to automate the deployment to the production server using docker-compose utilities.
+
+- [Deployment script](/scripts/pipeline/deploy/deploy.sh)
+
+- [Publish script](/scripts/pipeline/deploy/publish.sh)
+
+- [docker-compose](/scripts/pipeline/deploy/docker-compose.yml) for aws prod
+Use the following steps:
+
+* on host machine:
+```
+mkdir jenkins/deploy
+
+vi deploy.sh      #use the cotents from the deployment script above and save file.
+
+vi publish.sh     #use the cotents from the publish script above and save file.
+
+chmod +x deploy.sh
+
+chmod +x publish.sh
+
+```
+* on remote machine (aws ubuntu prod server):
+
+```
+mkdir maven             # in the prod-user home directory
+
+cd maven
+
+vi docker-compose.yml   # use the content in the docker-compose file above
+```
+
+### Configure the Jenkinsfile Deploy step
+
+To configure the deploy step in our CICD process add the automation scripts and deployment commands in the right order to the deploy section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).

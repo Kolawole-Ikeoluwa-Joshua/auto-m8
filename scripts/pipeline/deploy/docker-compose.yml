@@ -1,0 +1,6 @@
+version: '3'
+services:
+  maven:
+    # artifactory location
+    image: "kolawolejoshua/$IMAGE:$TAG"
+    container_name: maven-app

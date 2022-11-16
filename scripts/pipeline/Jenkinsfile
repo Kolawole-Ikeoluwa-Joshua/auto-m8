@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'echo push'
+                sh './jenkins/push/push.sh'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo deploy'
+                sh './jenkins/deploy/deploy.sh'
             }
         }
     }
