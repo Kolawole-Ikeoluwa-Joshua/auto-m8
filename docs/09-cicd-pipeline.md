@@ -167,3 +167,41 @@ vi docker-compose.yml   # use the content in the docker-compose file above
 ### Configure the Jenkinsfile Deploy step
 
 To configure the deploy step in our CICD process add the automation scripts and deployment commands in the right order to the deploy section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).
+
+### Create a repository to store scripts & application code
+
+```
+navigate to the pipeline directory
+
+git init
+
+git remote add origin https://github.com/Kolawole-Ikeoluwa-Joshua/pipeline-maven.git
+
+git add java-app jenkins Jenkinsfile
+
+git commit -m ...
+
+git push origin
+
+```
+
+### Create a Pipeline Job on Jenkins
+
+Log into the jenkins dashboard and create a new pipeline job with the following configurations.
+
+* pipeline script from scm
+* git SCM
+* URL & Credentials
+* script path - Jenkinsfile
+
+### Modify Build & Test scripts with path to jenkins container, Set credentials on Jenkins Dashboard.
+- Edit the following scripts and commit changes to GitHub repo from host machine.
+
+*[build](/scripts/pipeline/build/mvn.sh)
+*[test](/scripts/pipeline/test/mvn.sh)
+
+- Log into the jenkins dashboard and create credentials for dockerhub
+
+### Add credentials & post actions to Jenkinsfile
+Modify the jenkinsfile with the contents below:
+* [Jenkinsfile](/scripts/pipeline/Jenkinsfile)
