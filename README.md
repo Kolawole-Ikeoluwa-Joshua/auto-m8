@@ -24,3 +24,5 @@ Download and Install [Vagrant](https://www.vagrantup.com/) on windows host
 * [Ansible Inventory](docs/06-simple-ansible-inventory.md)
 * [Jenkins + Ansible Playbook](docs/07-ansible-playbook.md)
 * [Jenkins + Ansible: Deploy Simple Web Application](docs/08-deploy-web-app.md)
+* [CI/CD Pipeline](docs/09-cicd-pipeline.md)
+
