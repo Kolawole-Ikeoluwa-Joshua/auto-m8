@@ -80,8 +80,22 @@ docker images                # to view new docker image
 To configure the build step in our CICD process add the automation scripts and commands to run them in the right order to the build section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).
 
 
+### Test Java Application using Maven & Docker
 
+Create a [script](/scripts/pipeline/test/mvn.sh) to automate the test process. Use the following steps:
 
+```
+mkdir jenkins/test
 
+cd jenkins/test
+
+vi mvn.sh  #use the content in the script above and save file
+
+chmod +x build.sh
+
+```
+### Configure the Jenkinsfile test step
+
+To configure the test step in our CICD process add the automation scripts and mvn test commands in the right order to the test section of the [Jenkinsfile](/scripts/pipeline/Jenkinsfile).
 
 
