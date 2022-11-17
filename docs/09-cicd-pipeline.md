@@ -104,7 +104,7 @@ To configure the test step in our CICD process add the automation scripts and mv
 For this section, create a ubuntu linux server on AWS, Also ensure the server has the following configs:
 
 * SSH access
-* A `prod-user` with SSH key connection
+* A `prod-user` with SSH key connection, access to docker
 * Docker
 * docker-compose
 
@@ -181,7 +181,7 @@ git add java-app jenkins Jenkinsfile
 
 git commit -m ...
 
-git push origin
+git push origin master
 
 ```
 
@@ -205,3 +205,26 @@ Log into the jenkins dashboard and create a new pipeline job with the following 
 ### Add credentials & post actions to Jenkinsfile
 Modify the jenkinsfile with the contents below:
 * [Jenkinsfile](/scripts/pipeline/Jenkinsfile)
+
+
+### Add SSH Private Key file into Jenkins container to access AWS Production Server
+
+`docker cp ~/prod jenkins:/opt/prod`
+
+Note: Remember to test connection to aws prod server from the jenkins container
+
+### Start CI/CD process from Jenkins Dashboard Manually:
+
+Log into your Jenkins Dashboard and select the `pipeline-docker-maven` job and Build now.
+
+Note: Troubleshoot each stage in pipeline if you encounter errors till you have a completed below:
+
+![manual-pipeline](./images/deploy%20pipeline%20manually.png)
+
+
+Verify the deployment on the aws ubuntu server:
+
+![deployed-application](./images/verify%20deployed%20application.png)
+
+
+### Automatic trigger for CICD Pipeline:

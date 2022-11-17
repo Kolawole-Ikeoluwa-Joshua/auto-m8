@@ -8,6 +8,7 @@ IMAGE="maven-project"
 
 echo "***Logging in to DockerHub***"
 # ensure you use the right artifactory credentials
+# note: this docker authentication method has some security risks
 docker login -u kolawolejoshua -p $PASS
 echo "****Tagging Image************"
 docker tag $IMAGE:$BUILD_TAG kolawolejoshua/$IMAGE:$BUILD_TAG

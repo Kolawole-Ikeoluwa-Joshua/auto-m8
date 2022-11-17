@@ -4,7 +4,7 @@ echo "************************************"
 echo "******Testing your Application******"
 echo "************************************"
 
-WORKSPACE=/home/jenkins/jenkins/jenkins_home/workspace/pipeline-docker-maven
+WORKSPACE=/home/vagrant/jenkins/jenkins_home/workspace/pipeline-docker-maven
 
 
 # maven container with mounted volumes to our `java-app` and `dependency files` for testing application code.
